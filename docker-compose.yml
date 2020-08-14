@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  database_postgres:
+    image: postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 500M
+  server:
+    image: node
+    depends_on:
+      - database_postgres
+    environment:
+      PORT: 10000
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2000M

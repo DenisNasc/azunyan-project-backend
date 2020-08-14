@@ -1,0 +1,1 @@
+start: node install && npx tsc && node ./build
